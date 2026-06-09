@@ -6,7 +6,7 @@ import * as yup from 'yup';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#e1e4e8',
+    backgroundColor: theme.colors.mainBackground,
     flex: 1,
   },
   form: {
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     height: 64,
   },
   errorInput: {
-    borderColor: 'red',
+    borderColor: theme.colors.error,
   },
   button: {
     alignItems: 'center',
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     fontWeight: theme.fontWeights.bold,
   },
   errorText: {
-    color: 'red',
+    color: theme.colors.error,
     fontSize: 16,
     marginBottom: 8,
   },
