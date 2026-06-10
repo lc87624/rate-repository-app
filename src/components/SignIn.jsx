@@ -3,6 +3,8 @@ import { Pressable, StyleSheet, TextInput, View } from 'react-native';
 import { useFormik } from 'formik';
 import theme from '../theme';
 import * as yup from 'yup';
+import useSignIn from '../hooks/useSignIn';
+import { useNavigate } from "react-router";
 
 const styles = StyleSheet.create({
   container: {
@@ -48,14 +50,23 @@ const styles = StyleSheet.create({
 });
 
 const SignIn = () => {
-  
+  const [signIn] = useSignIn();
+  const navigate = useNavigate();
+
   const validationSchema = yup.object().shape({
     username: yup.string().required('Username is required'),
     password: yup.string().required('Password is required'),
   });
 
-  const onSubmit = (values) => {
-    console.log(values);
+  const onSubmit = async (values) => {
+    const { username, password } = values;
+    try {
+      const { data } = await signIn({ username, password });
+      console.log(data);
+      navigate('/');
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const formik = useFormik({
