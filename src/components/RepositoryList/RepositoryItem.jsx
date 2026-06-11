@@ -43,7 +43,7 @@ const formatCount = (count) => count >= 1000 ? `${(count / 1000).toFixed(1)}k` :
 
 const RepositoryItem = ({ item }) => {
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="repositoryItem">
       <View style={styles.header}>
         <Image style={styles.avatar} source={{ uri: item.ownerAvatarUrl }} />
         <View style={styles.info}>
