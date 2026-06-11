@@ -1,6 +1,6 @@
 import { Image, StyleSheet, View } from 'react-native';
-import Text from '../Text';
-import theme from '../../theme';
+import Text from './Text';
+import theme from '../theme';
 
 const styles = StyleSheet.create({
   container: {
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 
 const formatCount = (count) => count >= 1000 ? `${(count / 1000).toFixed(1)}k` : count;
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, children }) => {
   return (
     <View style={styles.container} testID="repositoryItem">
       <View style={styles.header}>
@@ -70,6 +70,7 @@ const RepositoryItem = ({ item }) => {
           <Text color="textSecondary">Rating</Text>
         </View>
       </View>
+      {children}
     </View>
   );
 };
